@@ -1,16 +1,21 @@
 import jsQR from "jsqr";
 import { Jimp } from "jimp";
 
-export default async function scan(imagePath: string) {
-  const image = await Jimp.read(imagePath);
-  const { data, width, height } = image.bitmap;
+export default async function scan(imagePath: string):Promise<string> {
+  try {
+    const image = await Jimp.read(imagePath);
+    const { data, width, height } = image.bitmap;
 
-  const code = jsQR(new Uint8ClampedArray(data), width, height);
+    const code = jsQR(new Uint8ClampedArray(data), width, height);
 
-  if (code) {
-    return code.data;
-  } else {
-    console.log("No QR code found");
-    return null;
+    if (code) {
+      return code.data;
+    } else {
+      console.log("No QR code found");
+      return `Error: QrCode Not Found`
+    }
+  } catch (error) {
+    console.log(error)
+    return `Error: ${error}`
   }
 }

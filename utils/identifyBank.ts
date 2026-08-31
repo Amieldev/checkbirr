@@ -1,17 +1,8 @@
-const banks = [
-  {
-    name: "CBE",
-    url:"mbreciept.cbe.com.et"
-  }
-]
+import banks from "./banks.js"
 
-export default function identifyBank(url: string) {
-  const baseURL: string = new URL(url).hostname;
-  for (let i = 0; i < banks.length; i++) {
-    const bank = banks[i];
-    if (baseURL === bank.url) {
-      return bank.name;
-    }
-  }
-  return null;
+export default function identifyBank(url: string): string {
+  const baseURL = new URL(url).hostname;
+  const bank = banks.find(b => b.url === baseURL);
+  if (!bank) throw new Error(`Unknown bank for URL: ${url}`);
+  return bank.name;
 }
