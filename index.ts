@@ -2,10 +2,34 @@ import scan from "./utils/scan.js";
 import identifyBank from "./utils/identifyBank.js";
 import banks from "./utils/banks.js";
 import Receipt from "./types/receipt.js";
+import "dotenv/config"
 
-async function checkbirr(imagePath: string) {
-  const url: string = await scan(imagePath);
+import checkCBE from "./banks/cbe.js";
+
+async function checkbirr(receipt: Receipt) {
+  const url: string = await scan(receipt.imagePath);
   const bank: string = identifyBank(url);
+
+  switch (bank) {
+    case "CBE": {
+      const output = await checkCBE(url,receipt);
+      return output
+    }
+    default:
+      throw new Error(`Unsupported bank: ${bank}`)
+  }
+
+
 }
 
-checkbirr(`photo.jpg`);
+checkbirr({
+  imagePath: 'photo.jpg',
+  receiverAccounts: [
+    {
+      bank: 'CBE',
+      receiverAccount: process.env.CBE_ACCOUNT_NUMBER ?? '',
+       receiverName: process.env.CBE_RECEIVER_NAME ?? '',
+    },
+  ],
+  amount:400,
+});

@@ -1,7 +1,7 @@
 const banks = [
   {
     name: "CBE",
-    url:"mbreciept.cbe.com.et"
+    url: "mbreciept.cbe.com.et",
   }
 ]
 
