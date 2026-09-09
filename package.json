@@ -18,8 +18,10 @@
   "license": "ISC",
   "dependencies": {
     "cheerio": "^1.2.0",
+    "dotenv": "^17.4.2",
     "jimp": "^1.6.1",
-    "jsqr": "^1.4.0"
+    "jsqr": "^1.4.0",
+    "puppeteer": "^25.10.0"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
