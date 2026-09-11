@@ -2,9 +2,9 @@ export default interface Transaction {
   verified: boolean;
   transactionID: string;
   bank: string;
-  senderAccount: string;
+  senderAccountNumber: string;
   senderName: string;
-  receiverAccount: string;
+  receiverAccountNumber: string;
   receiverName: string;
   amount: number;
   date: string;

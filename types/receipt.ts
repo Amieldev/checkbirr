@@ -2,7 +2,7 @@ export default interface Receipt {
   imagePath: string;
   receiverAccounts: {
     bank: string;
-    receiverAccount: string;
+    receiverAccountNumber: string;
     receiverName: string;
   }[];
   amount: number;
