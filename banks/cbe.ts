@@ -1,5 +1,5 @@
 import puppeteer from "puppeteer";
-import Transaction from "../types/transaction";
+import Transaction from "../types/transaction.js";
 import Receipt from "../types/receipt.js";
 
 export default async function checkCBE(

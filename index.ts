@@ -5,7 +5,7 @@ import "dotenv/config";
 
 import checkCBE from "./banks/cbe.js";
 
-async function checkbirr(receipt: Receipt) {
+export default async function checkbirr(receipt: Receipt) {
   const url: string = await scan(receipt.imagePath);
   const bank: string = identifyBank(url);
 
@@ -18,21 +18,3 @@ async function checkbirr(receipt: Receipt) {
       throw new Error(`Unsupported bank: ${bank}`);
   }
 }
-
-async function main() {
-  const log = await checkbirr({
-    imagePath: "photo.jpg",
-    receiverAccounts: [
-      {
-        bank: "CBE",
-        receiverAccountNumber: process.env.CBE_ACCOUNT_NUMBER ?? "",
-        receiverName: process.env.CBE_RECEIVER_NAME ?? "",
-      },
-    ],
-    amount: 400,
-  });
-
-  console.log(log);
-}
-
-main();
