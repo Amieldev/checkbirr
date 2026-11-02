@@ -35,7 +35,7 @@ const selector = await page.$$eval(
 
   let verified = false;
 
-  for (let i = 0; i++; i < receipt.receiverAccounts.length) {
+for (let i = 0; i < receipt.receiverAccounts.length; i++) {
     if (receipt.receiverAccounts[i].bank === "CBE") {
       if (
         receipt.amount === amount &&
