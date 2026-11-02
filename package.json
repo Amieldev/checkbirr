@@ -22,7 +22,12 @@
     "Ethiopia"
   ],
   "author": "Amieldev",
-  "license": "ISC",
+  "license": "MIT",
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/your-username/checkbirr"
+  },
+
   "dependencies": {
     "jimp": "^1.6.1",
     "jsqr": "^1.4.0",
