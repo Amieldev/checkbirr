@@ -4,12 +4,23 @@
   "description": "Automatic payment verification for Ethiopian bank receipts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "type": "module",
   "scripts": {
     "build": "tsc"
   },
-  "keywords": ["birr", "checkbirr", "verification", "payment", "payment-verification","screenshot","cbe","Ethiopia"],
+  "keywords": [
+    "birr",
+    "checkbirr",
+    "verification",
+    "payment",
+    "payment-verification",
+    "screenshot",
+    "cbe",
+    "Ethiopia"
+  ],
   "author": "Amieldev",
   "license": "ISC",
   "dependencies": {
@@ -19,6 +30,7 @@
   },
   "devDependencies": {
     "@types/node": "^26.4.0",
+    "tsx": "^4.23.15",
     "typescript": "^7.0.2"
   }
 }
