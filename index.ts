@@ -1,7 +1,6 @@
 import scan from "./utils/scan.js";
 import identifyBank from "./utils/identifyBank.js";
 import Receipt from "./types/receipt.js";
-import "dotenv/config";
 
 import checkCBE from "./banks/cbe.js";
 

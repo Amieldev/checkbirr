@@ -1,4 +1,4 @@
-import jsQR from "jsqr";
+import jsQR from "jsqr"
 import { Jimp } from "jimp";
 
 export default async function scan(imagePath: string):Promise<string> {
@@ -6,7 +6,7 @@ export default async function scan(imagePath: string):Promise<string> {
     const image = await Jimp.read(imagePath);
     const { data, width, height } = image.bitmap;
 
-    const code = jsQR(new Uint8ClampedArray(data), width, height);
+const code = jsQR.default(new Uint8ClampedArray(data), width, height);
 
     if (code) {
       return code.data;
