@@ -50,17 +50,14 @@ for (let i = 0; i < receipt.receiverAccounts.length; i++) {
 
   const transaction: Transaction = {
     verified,
-    transactionID,
-
     bank,
-    senderAccountNumber,
     senderName,
-
-    receiverAccountNumber,
+    senderAccountNumber,
     receiverName,
-
-    amount,
+    receiverAccountNumber,
     date,
+    transactionID,
+    amount,
   };
 
   return transaction;
