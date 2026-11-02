@@ -16,40 +16,20 @@ export default async function checkCBE(
     { visible: true, timeout: 10000 },
   );
 
-  const transactionID = await page.$eval(
-    `.text-black.text-right.md\\:text-sm.md\\:w-full`,
-    (element) => element.textContent?.trim() ?? "",
-  );
+const selector = await page.$$eval(
+  `.text-black.text-right.md\\:text-sm.md\\:col-span-1`,
+  (elements) => elements.map((el) => el.textContent?.trim() ?? ""),
+);
 
   const bank = "CBE";
-  const senderAccountNumber = await page.$eval(
-    `.text-black.text-right.md\\:text-sm.md\\:col-span-1`,
-    (element) => element.textContent?.trim() ?? "",
-  );
-  const senderName = await page.$eval(
-    ".text-black.text-right.md\\:text-sm.md\\:col-span-1",
-    (element) => element.textContent?.trim() ?? "",
-  );
+  const senderName = selector[0]
+  const senderAccountNumber = selector[1]
+  const receiverName = selector[2]
+  const receiverAccountNumber =selector[3]
+  const date = selector[5]
+  const transactionID = selector[6]
+  const amount = parseFloat(selector[8])
 
-  const receiverAccountNumber = await page.$eval(
-    `.text-black.text-right.md\\:text-sm.md\\:col-span-1`,
-    (element) => element.textContent?.trim() ?? "",
-  );
-  const receiverName = await page.$eval(
-    `.text-black.text-right.md\\:text-sm.md\\:col-span-1`,
-    (element) => element.textContent?.trim() ?? "",
-  );
-
-  const amount = parseFloat(
-    await page.$eval(
-      `.text-black.text-right.md\\:text-sm.md\\:col-span-1`,
-      (element) => element.textContent?.trim() ?? "",
-    ),
-  );
-  const date = await page.$eval(
-    `.text-black.text-right.md\\:text-sm.md\\:col-span-1`,
-    (element) => element.textContent?.trim() ?? "",
-  );
 
   await browser.close();
 
@@ -60,7 +40,7 @@ export default async function checkCBE(
       if (
         receipt.amount === amount &&
         receipt.receiverAccounts[i].receiverAccountNumber.slice(-4) ===
-          receiverAccountNumber.slice(-4) &&
+        receiverAccountNumber.slice(-4) &&
         receipt.receiverAccounts[i].receiverName === receiverName
       ) {
         verified = true;
