@@ -76,7 +76,7 @@ This library does **NOT** detect duplicate transactions and it is up to the deve
 
 ## Disclaimer
 
-This is **NOT** an official api or library published by the banks supported.
+This is **NOT** an official library published by any of the banks supported by it.
 
 ## License
 
