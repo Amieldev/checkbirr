@@ -44,7 +44,7 @@ main();
 {
     verified:true,
     bank:"CBE",
-    senderName:"Jane Doe Smith",
+    senderName:"Rip Van Winkle",
     senderAccountNumber:"1000*****",
     receiverName:"John Doe Smith",
     receiverAccountNumber:"1000*****",
@@ -54,13 +54,25 @@ main();
 }
 ```
 
-## Supported Banks
+## How it works
 
-![Commercial Bank of Ethiopia](/assets/cbe.jpg)
+CheckBirr scans the QrCode present on the screenshot and navigates to the official website of the bank to extract transaction details.
+After the details are extracted it simply compares the values provided by the developer with the ones retrieved from the website.
+Finally, deming the transaction as verified or not depending on the similarity of the two values.
+
+## Why use CheckBirr
+
+CheckBirr does **NOT** simply scan the screenshot and extract the transaction details using OCR scanning, But rather
+It scans the QrCode present on the screenshot and uses browser automation to extract the information from the official site provided by the bank.
+This makes it very reliable and impossible to trick with fake or edited screenshots.
 
 ## Note
 
-This library does **NOT** detect duplicate transactions and it is up to the developer to keep a history of transactions inorder to detect duplicate receipts.
+This library does **NOT** detect duplicate transactions and it is up to the developer to keep a history of transactions in order to detect duplicate receipts.
+
+## Supported Banks
+
+![Commercial Bank of Ethiopia](/assets/cbe.jpg)
 
 ## Disclaimer
 
