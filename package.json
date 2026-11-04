@@ -25,7 +25,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/checkbirr"
+    "url": "https://github.com/Amieldev/checkbirr"
   },
   "dependencies": {
     "jimp": "^1.6.1",
