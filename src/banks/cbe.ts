@@ -16,31 +16,30 @@ export default async function checkCBE(
     { visible: true, timeout: 10000 },
   );
 
-const selector = await page.$$eval(
-  `.text-black.text-right.md\\:text-sm.md\\:col-span-1`,
-  (elements) => elements.map((el) => el.textContent?.trim() ?? ""),
-);
+  const selector = await page.$$eval(
+    `.text-black.text-right.md\\:text-sm.md\\:col-span-1`,
+    (elements) => elements.map((el) => el.textContent?.trim() ?? ""),
+  );
 
   const bank = "CBE";
-  const senderName = selector[0]
-  const senderAccountNumber = selector[1]
-  const receiverName = selector[2]
-  const receiverAccountNumber =selector[3]
-  const date = selector[5]
-  const transactionID = selector[6]
-  const amount = parseFloat(selector[8])
-
+  const senderName = selector[0];
+  const senderAccountNumber = selector[1];
+  const receiverName = selector[2];
+  const receiverAccountNumber = selector[3];
+  const date = selector[5];
+  const referenceNumber = selector[6];
+  const amount = parseFloat(selector[8]);
 
   await browser.close();
 
   let verified = false;
 
-for (let i = 0; i < receipt.receiverAccounts.length; i++) {
+  for (let i = 0; i < receipt.receiverAccounts.length; i++) {
     if (receipt.receiverAccounts[i].bank === "CBE") {
       if (
         receipt.amount === amount &&
         receipt.receiverAccounts[i].receiverAccountNumber.slice(-4) ===
-        receiverAccountNumber.slice(-4) &&
+          receiverAccountNumber.slice(-4) &&
         receipt.receiverAccounts[i].receiverName === receiverName
       ) {
         verified = true;
@@ -56,7 +55,7 @@ for (let i = 0; i < receipt.receiverAccounts.length; i++) {
     receiverName,
     receiverAccountNumber,
     date,
-    transactionID,
+    referenceNumber,
     amount,
   };
 

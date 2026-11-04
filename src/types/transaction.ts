@@ -1,6 +1,6 @@
 export default interface Transaction {
   verified: boolean;
-  transactionID: string;
+  referenceNumber: string;
   bank: string;
   senderAccountNumber: string;
   senderName: string;
