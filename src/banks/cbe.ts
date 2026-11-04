@@ -1,6 +1,7 @@
 import puppeteer from "puppeteer";
 import Transaction from "../types/transaction.js";
 import Receipt from "../types/receipt.js";
+import hash from "../utils/hasher.js";
 
 export default async function checkCBE(
   url: string,
@@ -32,6 +33,7 @@ export default async function checkCBE(
 
   await browser.close();
 
+  const checkBirrID = hash(bank, referenceNumber);
   let verified = false;
 
   for (let i = 0; i < receipt.receiverAccounts.length; i++) {
@@ -57,6 +59,7 @@ export default async function checkCBE(
     date,
     referenceNumber,
     amount,
+    checkBirrID,
   };
 
   return transaction;
