@@ -70,7 +70,7 @@ This makes it very reliable and impossible to trick with fake or edited screensh
 ## Duplicate Receipts
 
 This library does **NOT** detect duplicate transactions nor does it keep a record of previous transactions.
-It is up to the developer to store a history of **checkBirrID**s (which is a unique ID given to each transaction by the library) and compare new receipts in order to detect duplicates.
+It is up to the developer to store a history of **checkBirrID**s (which are unique IDs given to each transaction by the library) and compare new receipts in order to detect duplicates.
 
 ## Supported Banks
 
