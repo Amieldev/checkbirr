@@ -64,7 +64,7 @@ Finally, deming the transaction as verified or not depending on the similarity o
 ## Why use CheckBirr
 
 CheckBirr does **NOT** simply extract the transaction details from the image using OCR scanning, But rather
-it retrieves them from the official site of the bank using web scrapping via the QrCode link present on the image.
+it retrieves them directly from the official site of the bank using web scrapping.
 This makes it very reliable and impossible to trick with fake or edited screenshots.
 
 ## Duplicate Receipts
