@@ -49,8 +49,9 @@ main();
     receiverName:"John Doe Smith",
     receiverAccountNumber:"1000*****",
     date:"Nov 02, 2026, 4:36 PM",
-    transactionID:"FM43812X",
+    referenceNumber:"FM43812X",
     amount:5000,
+    checkBirrID:"asd8f87a0d9f8a0as89f8"
 }
 ```
 
@@ -62,13 +63,14 @@ Finally, deming the transaction as verified or not depending on the similarity o
 
 ## Why use CheckBirr
 
-CheckBirr does **NOT** simply scan the screenshot and extract the transaction details using OCR scanning, But rather
-It scans the QrCode present on the screenshot and uses browser automation to extract the information from the official site provided by the bank.
+CheckBirr does **NOT** simply extract the transaction details from the image using OCR scanning, But rather
+it retrieves them from the official site of the bank using web scrapping via the QrCode link present on the image.
 This makes it very reliable and impossible to trick with fake or edited screenshots.
 
-## Note
+## Duplicate Receipts
 
-This library does **NOT** detect duplicate transactions and it is up to the developer to keep a history of transactions in order to detect duplicate receipts.
+This library does **NOT** detect duplicate transactions nor does it keep a record of previous transactions.
+It is up to the developer to store a history of **checkBirrID**s (which is a unique ID given to each transaction by the library) and compare new receipts in order to detect duplicates.
 
 ## Supported Banks
 
@@ -76,7 +78,7 @@ This library does **NOT** detect duplicate transactions and it is up to the deve
 
 ## Disclaimer
 
-This is **NOT** an official library published by any of the banks supported by it.
+This is **NOT** an official library published by any of the banks supported.
 
 ## License
 
