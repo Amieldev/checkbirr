@@ -6,7 +6,6 @@ import Receipt from "./types/receipt.js";
 import checkCBE from "./banks/cbe.js";
 
 export default async function checkbirr(receipt: Receipt) {
-
   const validationResult = validator(receipt);
   if (!validationResult.success) {
     const messages = validationResult.error.issues.map((issue) => {
@@ -18,7 +17,7 @@ export default async function checkbirr(receipt: Receipt) {
 
   const validReceipt = validationResult.data;
 
-  const url: string = await scan(validReceipt.imagePath);
+  const url: string = await scan(validReceipt.src);
   const bank: string = identifyBank(url);
 
   switch (bank) {

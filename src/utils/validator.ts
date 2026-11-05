@@ -1,14 +1,17 @@
 import * as z from "zod";
 
 const receiptSchema = z.object({
-  imagePath: z.string(),
-  receiverAccounts: z.array(
-    z.object({
-      bank: z.string(),
-      receiverName: z.string(),
-      receiverAccountNumber: z.string(),
-    })
-  ).min(1, "receiverAccounts must have at least one entry"),
+  src: z.string(),
+  fileType: z.string(),
+  receiverAccounts: z
+    .array(
+      z.object({
+        bank: z.string(),
+        receiverName: z.string(),
+        receiverAccountNumber: z.string(),
+      }),
+    )
+    .min(1, "receiverAccounts must have at least one entry"),
   amount: z.number(),
 });
 

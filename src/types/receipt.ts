@@ -1,5 +1,6 @@
 export default interface Receipt {
-  imagePath: string;
+  src: string;
+  fileType: string;
   receiverAccounts: {
     bank: string;
     receiverAccountNumber: string;
