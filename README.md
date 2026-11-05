@@ -1,6 +1,6 @@
-# CheckBirr 💵
+# CheckBirr
 
-Verify payment screenshots instantly ⚡
+Verify payment screenshots instantly
 
 ---
 
