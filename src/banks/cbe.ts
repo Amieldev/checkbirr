@@ -1,6 +1,6 @@
 import puppeteer from "puppeteer";
 import Transaction from "../types/transaction.js";
-import Receipt from "../types/receipt.js";
+import type { Receipt } from "../utils/validator.js";
 import hash from "../utils/hasher.js";
 
 export default async function checkCBE(

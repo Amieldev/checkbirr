@@ -1,7 +1,6 @@
 import scan from "./utils/scan.js";
 import identifyBank from "./utils/identifyBank.js";
-import validator from "./utils/validator.js";
-import Receipt from "./types/receipt.js";
+import validator, { type Receipt } from "./utils/validator.js";
 
 import checkCBE from "./banks/cbe.js";
 

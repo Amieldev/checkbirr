@@ -1,6 +1,6 @@
 import * as z from "zod";
 
-const receiptSchema = z.object({
+export const receiptSchema = z.object({
   src: z.string(),
   fileType: z.string(),
   receiverAccounts: z
@@ -14,6 +14,8 @@ const receiptSchema = z.object({
     .min(1, "receiverAccounts must have at least one entry"),
   amount: z.number(),
 });
+
+export type Receipt = z.infer<typeof receiptSchema>;
 
 export default function validateReceipt(receipt: unknown) {
   return receiptSchema.safeParse(receipt);
