@@ -51,15 +51,17 @@ export default async function checkCBE(
 
   const transaction: Transaction = {
     verified,
-    bank,
-    senderName,
-    senderAccountNumber,
-    receiverName,
-    receiverAccountNumber,
-    date,
-    referenceNumber,
-    amount,
-    checkBirrID,
+    transaction: {
+      bank,
+      senderName,
+      senderAccountNumber,
+      receiverName,
+      receiverAccountNumber,
+      date,
+      referenceNumber,
+      amount,
+      checkBirrID,
+    },
   };
 
   return transaction;
