@@ -18,7 +18,7 @@ import checkbirr from "checkbirr";
 async function main() {
   try {
     const output = await checkbirr({
-      imagePath: "./screenshot.jpg",
+      src: "./screenshot.jpg",
       amount: 5000,
       receiverAccounts: [
         {
