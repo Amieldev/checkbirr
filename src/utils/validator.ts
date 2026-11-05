@@ -1,6 +1,6 @@
 import * as z from "zod";
 
-export const receiptSchema = z.object({
+const receiptSchema = z.object({
   src: z.string(),
   fileType: z.string(),
   receiverAccounts: z
