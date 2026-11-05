@@ -2,7 +2,6 @@ import * as z from "zod";
 
 const receiptSchema = z.object({
   src: z.string(),
-  fileType: z.string(),
   receiverAccounts: z
     .array(
       z.object({
