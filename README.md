@@ -43,15 +43,16 @@ main();
 ```ts
 {
     verified:true,
-    bank:"CBE",
-    senderName:"Rip Van Winkle",
-    senderAccountNumber:"1000*****",
-    receiverName:"John Doe Smith",
-    receiverAccountNumber:"1000*****",
-    date:"Nov 02, 2026, 4:36 PM",
-    referenceNumber:"FM43812X",
-    amount:5000,
-    checkBirrID:"asd8f87a0d9f8a0as89f8"
+	  transaction:{
+	    bank:"CBE",
+	    senderName:"Jane Doe Smith",
+	    senderAccountNumber:"1000*****",
+	    receiverName:"John Doe Smith",
+	    receiverAccountNumber:"1000*****",
+	    date:"Nov 02, 2026, 4:36 PM",
+	    transactionID:"FM43812X",
+	    amount:5000,
+	}
 }
 ```
 
